@@ -2,13 +2,13 @@ package sample;
 
 public class Empleado {
 
-    int id;
+    int id = 0;
     String nombre;
     int edad;
     float horas;
 
-    public Empleado(int id, String nombre, int edad, float horas) {
-        this.id = id;
+    public Empleado(String nombre, int edad, float horas) {
+        this.id += 1;
         this.nombre = nombre;
         this.edad = edad;
         this.horas = horas;
@@ -44,5 +44,15 @@ public class Empleado {
 
     public void setHoras(float horas) {
         this.horas = horas;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", horas=" + horas +
+                '}';
     }
 }

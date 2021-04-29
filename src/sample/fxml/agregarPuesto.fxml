@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AgregarPuesto">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 50, 0, 0, 0); -fx-background-color: rgba(0, 0, 0, 0.5); -fx-background-radius: 20;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Pane layoutX="13.0" layoutY="13.0" prefHeight="355.0" prefWidth="555.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="230.0" layoutY="14.0" text="Puesto">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="122.0" text="Nombre:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inputNombrePuesto" layoutX="118.0" layoutY="122.0" prefHeight="39.0" prefWidth="286.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="14.0" layoutY="188.0" text="Departamento:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inputDepartamentoPuesto" layoutX="181.0" layoutY="186.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button defaultButton="true" layoutX="423.0" layoutY="290.0" mnemonicParsing="false" onAction="#guardarPuesto" style="-fx-background-radius: 20;" text="Guardar">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

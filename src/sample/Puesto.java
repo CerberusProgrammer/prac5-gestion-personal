@@ -4,22 +4,15 @@ import java.util.List;
 
 public class Puesto {
 
-    int clave;
+    int clave = 0;
     String nombre;
     String departamento;
     List<Empleado> empleados;
 
-    public Puesto(int clave, String nombre, String departamento) {
-        this.clave = clave;
+    public Puesto(String nombre, String departamento) {
+        this.clave += 1;
         this.nombre = nombre;
         this.departamento = departamento;
-    }
-
-    public Puesto(int clave, String nombre, String departamento, List<Empleado> empleados) {
-        this.clave = clave;
-        this.nombre = nombre;
-        this.departamento = departamento;
-        this.empleados = empleados;
     }
 
     public int getClave() {
@@ -52,5 +45,15 @@ public class Puesto {
 
     public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
+    }
+
+    @Override
+    public String toString() {
+        return "Puesto{" +
+                "clave=" + clave +
+                ", nombre='" + nombre + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", empleados=" + empleados +
+                '}';
     }
 }
