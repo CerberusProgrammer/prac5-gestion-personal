@@ -49,11 +49,9 @@ public class Puesto {
 
     @Override
     public String toString() {
-        return "Puesto{" +
-                "clave=" + clave +
+        return "clave=" + clave +
                 ", nombre='" + nombre + '\'' +
                 ", departamento='" + departamento + '\'' +
-                ", empleados=" + empleados +
-                '}';
+                ", empleados=" + empleados;
     }
 }
