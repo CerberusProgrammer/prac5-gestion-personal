@@ -7,7 +7,7 @@ public class Puesto {
     int clave = 0;
     String nombre;
     String departamento;
-    List<Empleado> empleados;
+    public static List<Empleado> empleados;
 
     public Puesto(String nombre, String departamento) {
         this.clave += 1;
@@ -44,14 +44,16 @@ public class Puesto {
     }
 
     public void setEmpleados(List<Empleado> empleados) {
-        this.empleados = empleados;
+        Puesto.empleados = empleados;
     }
+
 
     @Override
     public String toString() {
-        return "clave=" + clave +
+        return "Puesto{" +
+                "clave=" + clave +
                 ", nombre='" + nombre + '\'' +
                 ", departamento='" + departamento + '\'' +
-                ", empleados=" + empleados;
+                '}';
     }
 }

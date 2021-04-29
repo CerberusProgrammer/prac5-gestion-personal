@@ -53,6 +53,16 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
+                  <Label layoutX="11.0" layoutY="281.0" text="Puesto:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menuPuestos" layoutX="103.0" layoutY="279.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="300.0" text="Elige una opcion">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
                </children>
             </Pane>
          </children>

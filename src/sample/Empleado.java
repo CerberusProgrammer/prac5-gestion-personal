@@ -6,7 +6,7 @@ public class Empleado {
     String nombre;
     int edad;
     float horas;
-    Puesto puesto;
+    String puesto;
 
     public Empleado(String nombre, int edad, float horas) {
         this.id += 1;
@@ -47,11 +47,11 @@ public class Empleado {
         this.horas = horas;
     }
 
-    public Puesto getPuesto() {
+    public String getPuesto() {
         return puesto;
     }
 
-    public void setPuesto(Puesto puesto) {
+    public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
 
