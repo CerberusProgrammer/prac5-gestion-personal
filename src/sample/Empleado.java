@@ -6,6 +6,7 @@ public class Empleado {
     String nombre;
     int edad;
     float horas;
+    Puesto puesto;
 
     public Empleado(String nombre, int edad, float horas) {
         this.id += 1;
@@ -46,11 +47,22 @@ public class Empleado {
         this.horas = horas;
     }
 
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(Puesto puesto) {
+        this.puesto = puesto;
+    }
+
     @Override
     public String toString() {
-        return "id=" + id +
+        return "Empleado{" +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", edad=" + edad +
-                ", horas=" + horas;
+                ", horas=" + horas +
+                ", puesto=" + puesto +
+                '}';
     }
 }
