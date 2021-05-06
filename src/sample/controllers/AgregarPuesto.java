@@ -23,9 +23,10 @@ public class AgregarPuesto {
                 inputNombrePuesto.getText().isEmpty())
             return;
 
-        Puesto puesto = new Puesto(inputNombrePuesto.getText(),
+        Puesto puesto = new Puesto(Controller.sizePuesto, inputNombrePuesto.getText(),
                 inputDepartamentoPuesto.getText());
         Controller.puestos.add(puesto);
+        Controller.sizePuesto += 1;
 
         Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
         dialogAlert.setTitle("Aviso");

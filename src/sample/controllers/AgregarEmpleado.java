@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +17,10 @@ import sample.Empleado;
 import sample.Puesto;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class AgregarEmpleado implements Initializable {
 
@@ -44,6 +48,8 @@ public class AgregarEmpleado implements Initializable {
         empleado.setPuesto(seleccion);
         Controller.empleados.add(empleado);
 
+
+
         Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
         dialogAlert.setTitle("Aviso");
         dialogAlert.setHeaderText(null);
@@ -58,17 +64,30 @@ public class AgregarEmpleado implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for (Puesto puesto : Controller.puestos) {
+        List<String> list = new ArrayList<>();
+
+        for (Puesto puesto : Controller.puestos)
+            list.add(puesto.getDepartamento().toLowerCase());
+
+        list = list.stream().distinct().collect(Collectors.toList());
+
+        for (String s : list) {
             MenuItem menuItem = new MenuItem();
-            menuItem.setText(puesto.getNombre());
+            menuItem.setText(puesto.getNombre().toLowerCase());
+        }
+
+        for (Puesto puesto : Controller.puestos) {
+
+
+
             menuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     seleccion = ((MenuItem)event.getSource()).getText();
                 }
             });
-
             menuPuestos.getItems().add(menuItem);
         }
+
     }
 }

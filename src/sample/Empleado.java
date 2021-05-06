@@ -15,6 +15,14 @@ public class Empleado {
         this.horas = horas;
     }
 
+    public Empleado(int id, String nombre, int edad, float horas, String puesto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.horas = horas;
+        this.puesto = puesto;
+    }
+
     public int getId() {
         return id;
     }

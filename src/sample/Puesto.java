@@ -9,6 +9,13 @@ public class Puesto {
     String departamento;
     public static List<Empleado> empleados;
 
+    public Puesto(int clave, String nombre, String departamento) {
+        this.clave += 1;
+        this.clave = clave;
+        this.nombre = nombre;
+        this.departamento = departamento;
+    }
+
     public Puesto(String nombre, String departamento) {
         this.clave += 1;
         this.nombre = nombre;
