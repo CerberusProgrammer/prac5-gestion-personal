@@ -47,7 +47,6 @@ public class Puesto {
         Puesto.empleados = empleados;
     }
 
-
     @Override
     public String toString() {
         return "Puesto{" +

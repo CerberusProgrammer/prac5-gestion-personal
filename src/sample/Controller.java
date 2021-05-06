@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -57,9 +59,24 @@ public class Controller {
     }
 
     public void consultaGeneral(ActionEvent actionEvent) {
+        StringBuilder consulta = new StringBuilder();
+
+        for (Puesto puesto: puestos) {
+            consulta.append("clave: ").append(puesto.getClave()).append(", ");
+            consulta.append("nombre: ").append(puesto.getClave()).append(", ");
+            consulta.append("departamento: ").append(puesto.getClave()).append("\n");
+        }
+
+        Alert dialogAlert = new Alert(Alert.AlertType.ERROR);
+        dialogAlert.setTitle("Consulta General");
+        dialogAlert.setHeaderText(null);
+        dialogAlert.setContentText(consulta.toString());
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
     }
 
     public void consultaDepartamento(ActionEvent actionEvent) {
+        
     }
 
     public void consultaClave(ActionEvent actionEvent) {
