@@ -31,7 +31,7 @@ public class AgregarEmpleado implements Initializable {
     @FXML
     private TextField inputNombreEmpleado;
     @FXML
-    private MenuButton menuPuestos;
+    private TextField inputPuesto;
 
     String seleccion;
 
@@ -42,52 +42,41 @@ public class AgregarEmpleado implements Initializable {
                 inputNombreEmpleado.getText().isEmpty())
             return;
 
-        Empleado empleado = new Empleado(inputNombreEmpleado.getText(),
-                Integer.parseInt(inputEdadEmpleado.getText()),
-                Integer.parseInt(inputHorasEmpleado.getText()));
-        empleado.setPuesto(seleccion);
-        Controller.empleados.add(empleado);
 
+        for (Puesto puesto : Controller.puestos) {
+            if (puesto.getNombre().toLowerCase().equals(inputPuesto.getText().toLowerCase())) {
+                Empleado empleado = new Empleado(inputNombreEmpleado.getText(),
+                        Integer.parseInt(inputEdadEmpleado.getText()),
+                        Integer.parseInt(inputHorasEmpleado.getText()),
+                        inputPuesto.getText().toLowerCase());
+                empleado.setPuesto(seleccion);
+                Controller.empleados.add(empleado);
 
+                Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
+                dialogAlert.setTitle("Aviso");
+                dialogAlert.setHeaderText(null);
+                dialogAlert.setContentText("Se ha agregado el empleado correctamente.");
+                dialogAlert.initStyle(StageStyle.UTILITY);
+                dialogAlert.showAndWait();
 
-        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
+                final Node source = (Node) event.getSource();
+                final Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
+                return;
+            }
+        }
+
+        Alert dialogAlert = new Alert(Alert.AlertType.ERROR);
         dialogAlert.setTitle("Aviso");
         dialogAlert.setHeaderText(null);
-        dialogAlert.setContentText("Se ha agregado el empleado correctamente.");
+        dialogAlert.setContentText("No se ha colocado la informacion correcta.");
         dialogAlert.initStyle(StageStyle.UTILITY);
         dialogAlert.showAndWait();
-
-        final Node source = (Node) event.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        return;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        List<String> list = new ArrayList<>();
-
-        for (Puesto puesto : Controller.puestos)
-            list.add(puesto.getDepartamento().toLowerCase());
-
-        list = list.stream().distinct().collect(Collectors.toList());
-
-        for (String s : list) {
-            MenuItem menuItem = new MenuItem();
-            menuItem.setText(puesto.getNombre().toLowerCase());
-        }
-
-        for (Puesto puesto : Controller.puestos) {
-
-
-
-            menuItem.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    seleccion = ((MenuItem)event.getSource()).getText();
-                }
-            });
-            menuPuestos.getItems().add(menuItem);
-        }
 
     }
 }

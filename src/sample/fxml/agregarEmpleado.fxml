@@ -58,11 +58,11 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <MenuButton fx:id="menuPuestos" layoutX="103.0" layoutY="279.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="300.0" text="Elige una opcion">
+                  <TextField fx:id="inputPuesto" layoutX="98.0" layoutY="279.0" prefHeight="39.0" prefWidth="307.0">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </MenuButton>
+                  </TextField>
                </children>
             </Pane>
          </children>

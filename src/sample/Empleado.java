@@ -8,15 +8,8 @@ public class Empleado {
     float horas;
     String puesto;
 
-    public Empleado(String nombre, int edad, float horas) {
+    public Empleado(String nombre, int edad, float horas, String puesto) {
         this.id += 1;
-        this.nombre = nombre;
-        this.edad = edad;
-        this.horas = horas;
-    }
-
-    public Empleado(int id, String nombre, int edad, float horas, String puesto) {
-        this.id = id;
         this.nombre = nombre;
         this.edad = edad;
         this.horas = horas;
