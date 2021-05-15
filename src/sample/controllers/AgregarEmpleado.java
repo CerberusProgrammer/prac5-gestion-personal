@@ -49,8 +49,14 @@ public class AgregarEmpleado implements Initializable {
                         Integer.parseInt(inputEdadEmpleado.getText()),
                         Integer.parseInt(inputHorasEmpleado.getText()),
                         inputPuesto.getText().toLowerCase());
+
                 empleado.setPuesto(seleccion);
                 Controller.empleados.add(empleado);
+
+                for (Puesto p : Controller.puestos){
+                    if (p.getNombre().toLowerCase().equals(inputPuesto.getText().toLowerCase()))
+                        p.addEmpleado(empleado);
+                }
 
                 Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
                 dialogAlert.setTitle("Aviso");

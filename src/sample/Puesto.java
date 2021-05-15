@@ -7,7 +7,7 @@ public class Puesto {
     int clave = 0;
     String nombre;
     String departamento;
-    public static List<Empleado> empleados;
+    List<Empleado> empleados;
 
     public Puesto(int clave, String nombre, String departamento) {
         this.clave += 1;
@@ -51,7 +51,15 @@ public class Puesto {
     }
 
     public void setEmpleados(List<Empleado> empleados) {
-        Puesto.empleados = empleados;
+        empleados = empleados;
+    }
+
+    public void addEmpleado(Empleado empleado) {
+        this.empleados.add(empleado);
+    }
+
+    public void removeEmpleado(Empleado empleado) {
+        this.empleados.remove(empleado);
     }
 
     @Override

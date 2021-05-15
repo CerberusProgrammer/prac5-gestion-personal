@@ -82,9 +82,9 @@ public class Controller {
 
     public void consultaDepartamento(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog("");
-        dialog.setTitle("Value Input");
-        dialog.setHeaderText("Enter a value:");
-        dialog.setContentText("Value:");
+        dialog.setTitle("Consulta Departamento");
+        dialog.setHeaderText("Ingrese el nombre del departamento:");
+        dialog.setContentText("Nombre:");
         dialog.showAndWait();
 
         String result = dialog.getResult().toLowerCase();
@@ -118,6 +118,16 @@ public class Controller {
     }
 
     public void consultaClave(ActionEvent actionEvent) {
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Consulta Departamento");
+        dialog.setHeaderText("Ingrese el nombre del departamento:");
+        dialog.setContentText("Nombre:");
+        dialog.showAndWait();
+
+        String result = dialog.getResult().toLowerCase();
+        StringBuilder consulta = new StringBuilder();
+        boolean finder = true;
+
 
     }
 
