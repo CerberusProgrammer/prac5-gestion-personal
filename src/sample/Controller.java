@@ -128,7 +128,36 @@ public class Controller {
         StringBuilder consulta = new StringBuilder();
         boolean finder = true;
 
+        for(Puesto puesto : Controller.puestos) {
+            if (Integer.parseInt(result) == puesto.getClave()) {
+                consulta.append(puesto.getClave());
+                consulta.append(puesto.getNombre());
+                consulta.append(puesto.getDepartamento());
+                consulta.append(puesto.getEmpleados());
+                consulta.append("CLAVE: ").append(puesto.getClave()).append(", ");
+                consulta.append("NOMBRE: ").append(puesto.getNombre()).append(", ");
+                consulta.append("DEPARTAMENTO: ").append(puesto.getDepartamento()).append(", ");
+                consulta.append("EMPLEADOS: ").append(puesto.getEmpleados()).append("\n");
+                finder = false;
+            }
+        }
 
+        if (finder) {
+            Alert dialogAlert = new Alert(Alert.AlertType.ERROR);
+            dialogAlert.setTitle("Consulta Departamento");
+            dialogAlert.setHeaderText(null);
+            dialogAlert.setContentText("No se ha encontrado nada relacionado a ese departamento.");
+            dialogAlert.initStyle(StageStyle.UTILITY);
+            dialogAlert.showAndWait();
+            return;
+        }
+
+        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
+        dialogAlert.setTitle("Consulta Departamento");
+        dialogAlert.setHeaderText(null);
+        dialogAlert.setContentText(consulta.toString());
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
     }
 
     public void consultaNumero(ActionEvent actionEvent) {
