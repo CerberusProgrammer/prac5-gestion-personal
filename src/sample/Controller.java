@@ -161,8 +161,83 @@ public class Controller {
     }
 
     public void consultaNumero(ActionEvent actionEvent) {
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Consulta Empleado");
+        dialog.setHeaderText("Ingrese el numero del empleado:");
+        dialog.setContentText("Empleado:");
+        dialog.showAndWait();
+
+        String result = dialog.getResult().toLowerCase();
+        StringBuilder consulta = new StringBuilder();
+        boolean finder = true;
+
+        for (Empleado empleado : Controller.empleados) {
+            if (Integer.parseInt(result) == empleado.getId()) {
+                consulta.append("ID: ").append(empleado.getId()).append(", ");
+                consulta.append("NOMBRE: ").append(empleado.getNombre()).append(", ");
+                consulta.append("EDAD: ").append(empleado.getEdad()).append(", ");
+                consulta.append("HORAS: ").append(empleado.getHoras()).append(", ");
+                consulta.append("PUESTO: ").append(empleado.getPuesto()).append("\n");
+                finder = false;
+            }
+        }
+
+        if (finder) {
+            Alert dialogAlert = new Alert(Alert.AlertType.ERROR);
+            dialogAlert.setTitle("Consulta Empleados");
+            dialogAlert.setHeaderText(null);
+            dialogAlert.setContentText("No se ha encontrado nada relacionado a ese departamento.");
+            dialogAlert.initStyle(StageStyle.UTILITY);
+            dialogAlert.showAndWait();
+            return;
+        }
+
+        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
+        dialogAlert.setTitle("Consulta Empleado");
+        dialogAlert.setHeaderText(null);
+        dialogAlert.setContentText(consulta.toString());
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
     }
 
     public void consultaPuesto(ActionEvent actionEvent) {
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Consulta Empleado por Puesto");
+        dialog.setHeaderText("Ingrese la clave del puesto:");
+        dialog.setContentText("Empleado:");
+        dialog.showAndWait();
+
+        String result = dialog.getResult().toLowerCase();
+        StringBuilder consulta = new StringBuilder();
+        boolean finder = true;
+
+        for (Puesto puesto : Controller.puestos) {
+            if (Integer.parseInt(result) == puesto.getClave()) {
+                for (Empleado empleado: puesto.getEmpleados()) {
+                    consulta.append("ID: ").append(empleado.getId()).append(", ");
+                    consulta.append("NOMBRE: ").append(empleado.getNombre()).append(", ");
+                    consulta.append("EDAD: ").append(empleado.getEdad()).append(", ");
+                    consulta.append("HORAS: ").append(empleado.getHoras()).append(", ");
+                    consulta.append("PUESTO: ").append(empleado.getPuesto()).append("\n\n");
+                }
+            }
+        }
+
+        if (finder) {
+            Alert dialogAlert = new Alert(Alert.AlertType.ERROR);
+            dialogAlert.setTitle("Consulta Empleados");
+            dialogAlert.setHeaderText(null);
+            dialogAlert.setContentText("No se ha encontrado nada relacionado a ese departamento.");
+            dialogAlert.initStyle(StageStyle.UTILITY);
+            dialogAlert.showAndWait();
+            return;
+        }
+
+        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION);
+        dialogAlert.setTitle("Consulta Empleados");
+        dialogAlert.setHeaderText(null);
+        dialogAlert.setContentText(consulta.toString());
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
     }
 }
